@@ -1,6 +1,10 @@
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define"
          xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form"
          xmlns:i="jelly:fmt">
+<j:if test="${it.formatOption == 'json'}">
+	${it.tableHTML}
+</j:if>
+<j:if test="${it.formatOption != 'json'}">
 <html>
 	<head>
 		<style>
@@ -156,5 +160,5 @@
 		</div>
 	</body>
 </html>
+</j:if>
 </j:jelly>
-

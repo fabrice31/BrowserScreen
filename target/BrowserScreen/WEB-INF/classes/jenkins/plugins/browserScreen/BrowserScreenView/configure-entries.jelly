@@ -13,5 +13,12 @@
 	<f:entry title="${%List of test}" field="testsList">
 		<f:textbox id="browserScreen.tests" name="testsList"/>
 	</f:entry>
+
+	<f:entry title="${%Format}" field="formatOption">
+		<select name="formatOption">
+			<option value="html">HTML</option>
+			<option value="json">JSON</option>
+		</select>
+	</f:entry>	
 </j:jelly>
 

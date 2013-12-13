@@ -48,15 +48,21 @@ public class BrowserScreenView extends ListView {
 
 	public String debug;
 	public String title;
+	public String formatOption;
 	public String browsersList;
 	public String testsList;
 	private String[][] resultList;
-	// private String tableHTML;
 
-	// public String getResultList() { return getResults();}
+
 	public String getTableHTML() {
 		this.resultList = getResults();
-		return getTable();
+
+		if (this.formatOption.equals("json")) {
+			return getJson();
+		} else {
+			// default is html
+			return getTable();
+		}
 	}
 	
 	
@@ -68,8 +74,9 @@ public class BrowserScreenView extends ListView {
 		this.browsersList = req.getParameter("browsersList");
 		this.testsList = req.getParameter("testsList");
 		this.title = req.getParameter("title");
+		this.formatOption = req.getParameter("formatOption");
 
-		this.debug = "";
+		this.debug = "" + this.formatOption;
 
 		// calculation
 	}
@@ -160,5 +167,42 @@ public class BrowserScreenView extends ListView {
 		table += "</table>";
 		
 		return table;
+	}
+	
+	
+	private String getJson() {
+		String json = "";
+		String[] tests = this.testsList.split(",");
+		String[] browsers = this.browsersList.split(",");
+		int b,t;
+		
+		json = "{ tests: [";
+		for(t = 0; t < tests.length; t++) {
+			json += "{ name: \"" + tests[t] + "\", jobs: [";
+			for(b = 0; b < browsers.length; b++) {
+				json += "{ name: \"" + browsers[b] +"\","; 
+				if (this.resultList[t][b].equals("error")) {
+					json += "valid: false";
+				} else if (this.resultList[t][b].equals("valid")) {
+					json += "valid: true";
+				} else if (this.resultList[t][b].equals("build")) {
+					json += "valid: null,";
+					json += "build: true";
+				} else {
+					json += "valid: null";
+				}
+				json += "}";
+				if (b+1 < browsers.length) {
+					json += ",";
+				}
+			}
+			json += "]}";
+			if (t+1 < tests.length) {
+				json += ",";
+			}
+		}
+		json += "]}";
+		
+		return json;
 	}
 }
