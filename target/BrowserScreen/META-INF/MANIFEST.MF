@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Built-By: fabrice
+Created-By: Apache Maven
+Build-Jdk: 1.7.0_21
+Extension-Name: BrowserScreen
+Implementation-Title: BrowserScreen
+Implementation-Version: 1.0.0a
+Plugin-Class: jenkins.plugins.browserScreen.BrowserScreenPlugin
+Group-Id: org.jenkins-ci.plugins
+Short-Name: BrowserScreen
+Long-Name: Browser Screen View Panel
+Url: http://jenkins-ci.org/plugin/BrowserScreen/
+Plugin-Version: 1.0.0a
+Hudson-Version: 1.514
+Jenkins-Version: 1.514
+Plugin-Developers: Fabrice Bournisien:Fabrice:fabrice.bournisien@gmail
+ .com
+

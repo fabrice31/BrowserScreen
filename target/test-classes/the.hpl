@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Plugin-Class: jenkins.plugins.browserScreen.BrowserScreenPlugin
+Group-Id: org.jenkins-ci.plugins
+Short-Name: BrowserScreen
+Long-Name: Browser Screen View Panel
+Url: http://jenkins-ci.org/plugin/BrowserScreen/
+Plugin-Version: 1.0.0a
+Hudson-Version: 1.514
+Jenkins-Version: 1.514
+Plugin-Developers: Fabrice Bournisien:Fabrice:fabrice.bournisien@gmail
+ .com
+Libraries: c:\Users\fabrice\Documents\github\BrowserScreen\target\clas
+ ses
+Resource-Path: c:\Users\fabrice\Documents\github\BrowserScreen\src\mai
+ n\webapp
+

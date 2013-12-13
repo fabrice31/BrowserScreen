@@ -1,0 +1,17 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define"
+	xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form"
+	xmlns:i="jelly:fmt">
+
+	<f:entry title="${%Title}" field="title">
+		<f:textbox id="browserScreen.title" name="title"/>
+	</f:entry>
+	
+	<f:entry title="${%List of browsers}" field="browsersList">
+		<f:textbox id="browserScreen.browsers" name="browsersList"/>
+	</f:entry>
+
+	<f:entry title="${%List of test}" field="testsList">
+		<f:textbox id="browserScreen.tests" name="testsList"/>
+	</f:entry>
+</j:jelly>
+
