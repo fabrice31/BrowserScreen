@@ -90,7 +90,7 @@
 
 			thead th {
 				-webkit-transform: rotate(-45deg); 
-				-moz-transform: rotate(-90deg);
+				-moz-transform: rotate(-45deg);
 				text-align: center;
 				font-size: 1em;
 				border-right: 1px solid #ccc;
