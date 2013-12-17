@@ -75,11 +75,8 @@ public class BrowserScreenView extends ListView {
 		this.testsList = req.getParameter("testsList");
 		this.title = req.getParameter("title");
 		this.formatOption = req.getParameter("formatOption");
-
-		this.debug = "" + this.formatOption;
-
-		// calculation
 	}
+
 
 	public String[][] getResults() {
 		String[] tests = this.testsList.split(",");
@@ -123,13 +120,15 @@ public class BrowserScreenView extends ListView {
 		return results;
 	}
 
+
 	private Boolean jobIsFailed (Job job) {
 		return !(
 			job.getLastBuild().getBuildStatusSummary().message.toString().equalsIgnoreCase("stable")
 			|| job.getLastBuild().getBuildStatusSummary().message.toString().equalsIgnoreCase("back to normal")
 		);
 	}
-	
+
+
 	private String getTable() {
 		String table = "";
 		String[] tests = this.testsList.split(",");
@@ -143,20 +142,22 @@ public class BrowserScreenView extends ListView {
 		icons.put("noresult", "&nbsp;");
 		icons.put("notest", "&nbsp;");
 		
+		double colWidth = Math.round(100* (90 / (browsers.length+1))) / 100;
 
 		table = "<table>";
 		// entete
-		table += "<thead><tr><th></th>";
+		table += "<thead><tr><th width=\"10%\"></th>";
 		for(b = 0; b < browsers.length; b++) {
-			table += "<th>"+ browsers[b] +"</th>";
+			table += "<th width=\""+ colWidth +"%\">"+browsers[b]+"</th>";
 		}
 		table += "</tr></thead>";
 		
 		// body
 		for(t = 0; t < tests.length; t++) {
-			table += "<tr><th>" + tests[t] + "</th>";
+			table += "<tr><th width=\"10%\">" + tests[t] + "</th>";
 			for(b = 0; b < browsers.length; b++) {
-				table += "<td class=\""+this.resultList[t][b]+"\">"
+				table += "<td width=\""+ colWidth +"%\""
+					+ "class=\""+this.resultList[t][b]+"\">"
 					+ icons.get(this.resultList[t][b])
 					+"</td>";
 			}
